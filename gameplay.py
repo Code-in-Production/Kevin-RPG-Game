@@ -82,7 +82,7 @@ class Test(commands.Cog):
 
         self.game.curr_enemy.hp = max(0, self.game.curr_enemy.hp-dmg_to_enemy)
         await ctx.send(f"You dealt {dmg_to_enemy} damage to the enemy, leaving them at {self.game.curr_enemy.hp} HP")
-        
+
         # Enemy dies
         if self.game.curr_enemy.hp == 0:
             loot = self.game.enemyidx
@@ -100,7 +100,7 @@ class Test(commands.Cog):
         if self.ship.hp == 0:
             self.reset()
             await ctx.send(f"You died, game over. `;hyperdrive` to restart at level 1.")
-   
+
     """ ENCOUNTERING MERCHANT """
     @commands.command()
     async def sell(self, ctx, value: int):
@@ -126,7 +126,7 @@ class Test(commands.Cog):
         if self.ship.tools <= 0:
             await ctx.send("No more tools. You cannot increase the ship's HP")
             return
-        
+
         self.ship.hp += 25
         self.ship.tools -= 1
         await ctx.send(f"Used a tool to boost the ship's HP to {self.ship.hp}")
@@ -162,7 +162,7 @@ class Test(commands.Cog):
     #     await ctx.send(f"{ctx.command}")
     #     await ctx.send(f"{self.ship.__dict__}")
     #     ...
-    
+
     # @commands.command()
     # async def s(self, ctx):
     #     await ctx.send(f"{self.game.__dict__}")
